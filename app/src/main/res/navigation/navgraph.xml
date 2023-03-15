@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgraph"
+    app:startDestination="@id/fragmentHome">
+    <fragment
+        android:id="@+id/fragmentEdit"
+        android:name="com.leblebi.roompractice.FragmentEdit"
+        android:label="Add/Edit"
+        tools:layout="@layout/edit_fragment"
+        >
+
+        <action
+            android:id="@+id/action_fragmentEdit_to_fragmentHome"
+            app:destination="@id/fragmentHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentHome"
+        android:name="com.leblebi.roompractice.FragmentHome"
+        android:label="Home"
+        tools:layout="@layout/home_fragment"
+        >
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentEdit"
+            app:destination="@id/fragmentEdit" />
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentUpdate"
+            app:destination="@id/fragmentUpdate" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentUpdate"
+        android:name="com.leblebi.roompractice.FragmentUpdate"
+        android:label="FragmentUpdate"
+        tools:layout="@layout/update_fragment">
+        <action
+            android:id="@+id/action_fragmentUpdate_to_fragmentHome"
+            app:destination="@id/fragmentHome" />
+        <argument
+            android:name="currentUser"
+            app:argType="com.leblebi.roompractice.User" />
+
+    </fragment>
+</navigation>
